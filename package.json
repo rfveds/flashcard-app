@@ -1,0 +1,28 @@
+{
+  "name": "flashcard-app",
+  "version": "1.0.0",
+  "description": "flashcard-app for learning webdev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfveds/flashcard-app.git"
+  },
+  "author": "Karol Kijowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rfveds/flashcard-app/issues"
+  },
+  "homepage": "https://github.com/rfveds/flashcard-app#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.2"
+  }
+}
