@@ -4,7 +4,7 @@ const port = process.env.PORT
 
 const app = express()
 
-app.use('/api/cards', require('./routes/cardRoades'))
+app.use('/api/cards', require('./routes/cardRoutes'))
 
 app.listen(port, () => {
     console.log(`server started on port ${port}`)
