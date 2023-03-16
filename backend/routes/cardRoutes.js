@@ -1,22 +1,15 @@
 const express = require('express')
 const router = express.Router()
+const { getCards, setCard, updateCard, deleteCard } = require('../controllers/cardController')
 
 
-router.get('/', (req, res) => {
-    res.status(200).json({ message: 'Get cards' })
-})
+router.get('/', getCards)
 
-router.post('/', (req, res) => {
-    res.status(200).json({ message: 'Set card' })
-})
+router.post('/', setCard)
 
-router.put('/:id', (req, res) => {
-    res.status(200).json({ message: `Update card ${req.params.id}` })
-})
+router.put('/:id', updateCard)
 
-router.delete('/:id', (req, res) => {
-    res.status(200).json({ message: `Delete card ${req.params.id}` })
-})
+router.delete('/:id', deleteCard)
 
 
 module.exports = router
