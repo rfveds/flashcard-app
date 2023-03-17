@@ -10,10 +10,10 @@ const deckSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  // cards: [{
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'Card'
-  // }]
+  cards: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Card'
+  }]
 });
 
 module.exports = mongoose.model('Deck', deckSchema);

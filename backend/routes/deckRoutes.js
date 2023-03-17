@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getDecks, setDeck, updateDeck, deleteDeck } = require('../controllers/deckController')
+const { getDecks, getDeck, setDeck, updateDeck, deleteDeck } = require('../controllers/deckController')
 const { protect } = require('../middleware/authMiddleware')
 
 router.route('/')
@@ -8,6 +8,7 @@ router.route('/')
     .post(protect, setDeck)
 
 router.route('/:id')
+    .get(protect, getDeck)
     .put(protect, updateDeck)
     .delete(protect, deleteDeck)
 

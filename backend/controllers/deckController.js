@@ -15,6 +15,18 @@ const getDecks = asyncHandler(async (req, res) => {
 })
 
 /**    
+ *  @desc   Get Deck
+ *  @route  GET /api/deck/:id
+ *  @access Private
+*/
+const getDeck = asyncHandler(async (req, res) => {
+
+    const deck = await Deck.findById(req.params.id)
+
+    res.status(200).json(deck)
+})
+
+/**    
  *  @desc   Set Deck
  *  @route  POST /api/deck
  *  @access Private
@@ -107,6 +119,7 @@ const deleteDeck = asyncHandler(async (req, res) => {
 
 module.exports = {
     getDecks,
+    getDeck,
     setDeck,
     updateDeck,
     deleteDeck
