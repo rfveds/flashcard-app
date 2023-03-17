@@ -2,8 +2,8 @@ const asyncHandler = require('express-async-handler')
 const Deck = require('../models/deckModel')
 
 /**    
- *  @desc Get Decks
- *  @route GET /api/deck
+ *  @desc   Get Decks
+ *  @route  GET /api/deck
  *  @access Private
 */
 const getDecks = asyncHandler(async (req, res) => {
