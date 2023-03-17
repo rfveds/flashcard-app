@@ -12,7 +12,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/api/cards', require('./routes/cardRoutes'))
+app.use('/api/deck', require('./routes/deckRoutes'))
 
 app.listen(port, () => {
     console.log(`server started on port ${port}`)
