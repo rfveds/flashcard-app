@@ -1,14 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const { getDecks, setDeck, updateDeck, deleteDeck } = require('../controllers/deckController')
+const { protect } = require('../middleware/authMiddleware')
 
 router.route('/')
-    .get(getDecks)
-    .post(setDeck)
+    .get(protect, getDecks)
+    .post(protect, setDeck)
 
 router.route('/:id')
-    .put(updateDeck)
-    .delete(deleteDeck)
+    .put(protect, updateDeck)
+    .delete(protect, deleteDeck)
 
 module.exports = router
 

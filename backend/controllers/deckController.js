@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const Deck = require('../models/deckModel')
+const User = require('../models/userModel')
 
 /**    
  *  @desc   Get Decks
@@ -8,7 +9,7 @@ const Deck = require('../models/deckModel')
 */
 const getDecks = asyncHandler(async (req, res) => {
 
-    const decks = await Deck.find()
+    const decks = await Deck.find({ user: req.user.id })
 
     res.status(200).json(decks)
 })
@@ -26,7 +27,8 @@ const setDeck = asyncHandler(async (req, res) => {
     }
 
     const deck = await Deck.create({
-        name: req.body.name
+        name: req.body.name,
+        user: req.user.id
     })
 
     res.status(200).json(deck)
@@ -40,10 +42,23 @@ const setDeck = asyncHandler(async (req, res) => {
 const updateDeck = asyncHandler(async (req, res) => {
 
     const deck = await Deck.findById(req.params.id)
+    const user = await User.findById(req.user.id)
 
     if (!deck) {
         res.status(400)
         throw new Error('Deck not found')
+    }
+
+    // Check for user
+    if (!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    // Make sure the logged in user matches the goal user 
+    if (deck.user.toString() !== user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
     }
 
     const updatedDeck = await Deck.findByIdAndUpdate(
@@ -65,11 +80,25 @@ const updateDeck = asyncHandler(async (req, res) => {
 const deleteDeck = asyncHandler(async (req, res) => {
 
     const deck = await Deck.findById(req.params.id)
+    const user = await User.findById(req.user.id)
 
     if (!deck) {
         res.status(400)
         throw new Error('Deck not found')
     }
+
+    // Check for user
+    if (!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    // Make sure the logged in user matches the goal user 
+    if (deck.user.toString() !== user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
+    }
+
 
     await deck.deleteOne()
 
