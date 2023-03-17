@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const { getDeck, setDeck, updateDeck, deleteDeck } = require('../controllers/deckController')
+const { getDecks, setDeck, updateDeck, deleteDeck } = require('../controllers/deckController')
 
 router.route('/')
-    .get(getDeck)
+    .get(getDecks)
     .post(setDeck)
 
 router.route('/:id')

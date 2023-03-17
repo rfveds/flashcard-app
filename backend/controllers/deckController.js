@@ -1,12 +1,16 @@
 const asyncHandler = require('express-async-handler')
+const Deck = require('../models/deckModel')
 
 /**    
- *  @desc Get Deck
+ *  @desc Get Decks
  *  @route GET /api/deck
  *  @access Private
 */
-const getDeck = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'Get Deck' })
+const getDecks = asyncHandler(async (req, res) => {
+
+    const decks = await Deck.find()
+
+    res.status(200).json(decks)
 })
 
 /**    
@@ -15,11 +19,17 @@ const getDeck = asyncHandler(async (req, res) => {
  *  @access Private
 */
 const setDeck = asyncHandler(async (req, res) => {
-    if (!req.body.frontDeckText) {
+
+    if (!req.body.name) {
         res.status(400)
-        throw new Error("Add a front Deck text")
+        throw new Error("Add a deck name")
     }
-    res.status(200).json({ message: 'Set Deck' })
+
+    const deck = await Deck.create({
+        name: req.body.name
+    })
+
+    res.status(200).json(deck)
 })
 
 /**    
@@ -28,7 +38,23 @@ const setDeck = asyncHandler(async (req, res) => {
  *  @access Private
 */
 const updateDeck = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'Update Deck' })
+
+    const deck = await Deck.findById(req.params.id)
+
+    if (!deck) {
+        res.status(400)
+        throw new Error('Deck not found')
+    }
+
+    const updatedDeck = await Deck.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new: true,
+        }
+    )
+
+    res.status(200).json(updatedDeck)
 })
 
 /**    
@@ -37,11 +63,21 @@ const updateDeck = asyncHandler(async (req, res) => {
  *  @access Private
 */
 const deleteDeck = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'Delete Deck' })
+
+    const deck = await Deck.findById(req.params.id)
+
+    if (!deck) {
+        res.status(400)
+        throw new Error('Deck not found')
+    }
+
+    await deck.deleteOne()
+
+    res.status(200).json({id: req.params.id})
 })
 
 module.exports = {
-    getDeck,
+    getDecks,
     setDeck,
     updateDeck,
     deleteDeck
