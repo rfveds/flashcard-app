@@ -15,8 +15,8 @@ const getDecks = asyncHandler(async (req, res) => {
 })
 
 /**    
- *  @desc Set Deck
- *  @route POST /api/deck
+ *  @desc   Set Deck
+ *  @route  POST /api/deck
  *  @access Private
 */
 const setDeck = asyncHandler(async (req, res) => {
@@ -73,8 +73,8 @@ const updateDeck = asyncHandler(async (req, res) => {
 })
 
 /**    
- *  @desc Delete Deck
- *  @route DELETE /api/deck/:id
+ *  @desc   Delete Deck
+ *  @route  DELETE /api/deck/:id
  *  @access Private
 */
 const deleteDeck = asyncHandler(async (req, res) => {
