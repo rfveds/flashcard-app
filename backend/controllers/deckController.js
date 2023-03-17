@@ -73,7 +73,7 @@ const deleteDeck = asyncHandler(async (req, res) => {
 
     await deck.deleteOne()
 
-    res.status(200).json({id: req.params.id})
+    res.status(200).json({ id: req.params.id })
 })
 
 module.exports = {
