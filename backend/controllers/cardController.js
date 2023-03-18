@@ -60,8 +60,8 @@ const setCard = asyncHandler(async (req, res) => {
 })
 
 /**    
- *  @desc Update Card
- *  @route PUT /api/card/:id
+ *  @desc   Update Card
+ *  @route  PUT /api/card/:id
  *  @access Private
 */
 const updateCard = asyncHandler(async (req, res) => {

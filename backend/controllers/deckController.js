@@ -47,8 +47,8 @@ const setDeck = asyncHandler(async (req, res) => {
 })
 
 /**    
- *  @desc Update Deck
- *  @route PUT /api/deck/:id
+ *  @desc   Update Deck
+ *  @route  PUT /api/deck/:id
  *  @access Private
 */
 const updateDeck = asyncHandler(async (req, res) => {
