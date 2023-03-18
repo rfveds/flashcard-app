@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const cardSchema = new mongoose.Schema({
-    question: {
+    front: {
         type: String,
         required: true
     },
-    answer: {
+    back: {
         type: String,
         required: true
     },
@@ -25,11 +25,11 @@ const cardSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    deck: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Deck',
-        required: true
-    }
+    // deck: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Deck',
+    //     required: true
+    // }
 });
 
 module.exports = mongoose.model('Card', cardSchema);

@@ -1,40 +1,40 @@
-// const asyncHandler = require('express-async-handler')
-// const Card = require('../models/deckModel')
-// const User = require('../models/userModel')
-// const Card = require('../models/cardModel')
+const asyncHandler = require('express-async-handler')
+const Card = require('../models/cardModel')
+const User = require('../models/userModel')
 
-// /**    
-//  *  @desc   Get Cards
-//  *  @route  GET /api/card
-//  *  @access Private
-// */
-// const getCards = asyncHandler(async (req, res) => {
+/**    
+ *  @desc   Get Cards
+ *  @route  GET /api/card
+ *  @access Public
+*/
+const getCards = asyncHandler(async (req, res) => {
 
-    
-//     const cards = await Card.find({ user: req.user.id })
+    const cards = await Card.find()
 
-//     res.status(200).json(cards)
-// })
+    res.status(200).json(cards)
+})
 
-// /**    
-//  *  @desc   Set Card
-//  *  @route  POST /api/card
-//  *  @access Private
-// */
-// const setCard = asyncHandler(async (req, res) => {
+/**    
+ *  @desc   Set Card
+ *  @route  POST /api/card
+ *  @access Private
+*/
+const setCard = asyncHandler(async (req, res) => {
 
-//     if (!req.body.name) {
-//         res.status(400)
-//         throw new Error("Add a card name")
-//     }
+    const { front, back } = req.body
 
-//     const card = await Card.create({
-//         name: req.body.name,
-//         user: req.user.id
-//     })
+    if (!front || !back) {
+        res.status(400)
+        throw new Error("Add card data")
+    }
 
-//     res.status(200).json(card)
-// })
+    const card = await Card.create({
+        front: front,
+        back: back
+    })
+
+    res.status(200).json(card)
+})
 
 // /**    
 //  *  @desc Update Card
@@ -107,9 +107,9 @@
 //     res.status(200).json({ id: req.params.id })
 // })
 
-// module.exports = {
-//     getCards,
-//     setCard,
-//     updateCard,
-//     deleteCard
-// }
+module.exports = {
+    getCards,
+    setCard,
+    // updateCard,
+    // deleteCard
+}
