@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const Card = require('../models/cardModel')
+const Deck = require('../models/deckModel')
 const User = require('../models/userModel')
 
 /**    
@@ -21,7 +22,7 @@ const getCards = asyncHandler(async (req, res) => {
 */
 const setCard = asyncHandler(async (req, res) => {
 
-    const { front, back } = req.body
+    const { front, back, deckId } = req.body
 
     if (!front || !back) {
         res.status(400)
@@ -30,8 +31,15 @@ const setCard = asyncHandler(async (req, res) => {
 
     const card = await Card.create({
         front: front,
-        back: back
+        back: back,
+        deck: deckId
     })
+
+    await Deck.findByIdAndUpdate(
+        deckId,
+        { $push: { cards: card._id } },
+        { new: true }
+      );
 
     res.status(200).json(card)
 })

@@ -25,11 +25,11 @@ const cardSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    // deck: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Deck',
-    //     required: true
-    // }
+    deck: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Deck',
+        // required: true
+    }
 });
 
 module.exports = mongoose.model('Card', cardSchema);
