@@ -4,8 +4,8 @@ const { getCards, getCard, setCard, updateCard } = require('../controllers/cardC
 const { protect } = require('../middleware/authMiddleware')
 
 router.route('/')
-    .get(getCards)
-    .post(setCard)
+    .get(protect, getCards)
+    .post(protect, setCard)
 
 router.route('/:id')
     .get(protect, getCard)

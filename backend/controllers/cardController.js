@@ -35,6 +35,7 @@ const getCard = asyncHandler(async (req, res) => {
 const setCard = asyncHandler(async (req, res) => {
 
     const { front, back, deckId } = req.body
+    const userId = req.user.id
 
     if (!front || !back) {
         res.status(400)
@@ -44,7 +45,9 @@ const setCard = asyncHandler(async (req, res) => {
     const card = await Card.create({
         front: front,
         back: back,
-        deck: deckId
+        deck: deckId,
+        user: userId
+
     })
 
     await Deck.findByIdAndUpdate(
@@ -64,6 +67,24 @@ const setCard = asyncHandler(async (req, res) => {
 const updateCard = asyncHandler(async (req, res) => {
 
     const card = await Card.findById(req.params.id)
+    const user = await User.findById(req.user.id)
+
+    if (!card) {
+        res.status(400)
+        throw new Error('Deck not found')
+    }
+
+    // Check for user
+    if (!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    // Make sure the logged in user matches the goal user 
+    if (card.user.toString() !== user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
+    }
 
     if (!card) {
         res.status(400)
