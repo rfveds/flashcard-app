@@ -102,43 +102,43 @@ const updateCard = asyncHandler(async (req, res) => {
     res.status(200).json(updatedCard)
 })
 
-// /**    
-//  *  @desc   Delete Card
-//  *  @route  DELETE /api/card/:id
-//  *  @access Private
-// */
-// const deleteCard = asyncHandler(async (req, res) => {
+/**    
+ *  @desc   Delete Card
+ *  @route  DELETE /api/card/:id
+ *  @access Private
+*/
+const deleteCard = asyncHandler(async (req, res) => {
 
-//     const card = await Card.findById(req.params.id)
-//     const user = await User.findById(req.user.id)
+    const card = await Card.findById(req.params.id)
+    const user = await User.findById(req.user.id)
 
-//     if (!card) {
-//         res.status(400)
-//         throw new Error('Card not found')
-//     }
+    if (!card) {
+        res.status(400)
+        throw new Error('Card not found')
+    }
 
-//     // Check for user
-//     if (!user) {
-//         res.status(401)
-//         throw new Error('User not found')
-//     }
+    // Check for user
+    if (!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
 
-//     // Make sure the logged in user matches the goal user 
-//     if (card.user.toString() !== user.id) {
-//         res.status(401)
-//         throw new Error('User not authorized')
-//     }
+    // Make sure the logged in user matches the goal user 
+    if (card.user.toString() !== user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
+    }
 
 
-//     await card.deleteOne()
+    await card.deleteOne()
 
-//     res.status(200).json({ id: req.params.id })
-// })
+    res.status(200).json({ id: req.params.id })
+})
 
 module.exports = {
     getCards,
     getCard,
     setCard,
     updateCard,
-    // deleteCard
+    deleteCard
 }

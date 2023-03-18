@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getCards, getCard, setCard, updateCard } = require('../controllers/cardController')
+const { getCards, getCard, setCard, updateCard, deleteCard } = require('../controllers/cardController')
 const { protect } = require('../middleware/authMiddleware')
 
 router.route('/')
@@ -10,6 +10,6 @@ router.route('/')
 router.route('/:id')
     .get(protect, getCard)
     .put(protect, updateCard)
-//     .delete(protect, deleteCard)
+    .delete(protect, deleteCard)
 
 module.exports = router
