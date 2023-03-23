@@ -67,7 +67,6 @@ const setCard = asyncHandler(async (req, res) => {
 const updateCard = asyncHandler(async (req, res) => {
 
     const card = await Card.findById(req.params.id)
-    const user = await User.findById(req.user.id)
 
     if (!card) {
         res.status(400)
@@ -75,13 +74,13 @@ const updateCard = asyncHandler(async (req, res) => {
     }
 
     // Check for user
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('User not found')
     }
 
     // Make sure the logged in user matches the goal user 
-    if (card.user.toString() !== user.id) {
+    if (card.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
@@ -110,7 +109,6 @@ const updateCard = asyncHandler(async (req, res) => {
 const deleteCard = asyncHandler(async (req, res) => {
 
     const card = await Card.findById(req.params.id)
-    const user = await User.findById(req.user.id)
 
     if (!card) {
         res.status(400)
@@ -118,13 +116,13 @@ const deleteCard = asyncHandler(async (req, res) => {
     }
 
     // Check for user
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('User not found')
     }
 
     // Make sure the logged in user matches the goal user 
-    if (card.user.toString() !== user.id) {
+    if (card.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
