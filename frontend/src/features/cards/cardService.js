@@ -28,9 +28,23 @@ const getCards = async (token) => {
     return response.data
 }
 
+// Delete users card
+const deleteCard = async (cardId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.delete(API_URL + cardId, config)
+
+    return response.data
+}
+
 const cardService = {
     createCard,
-    getCards
+    getCards,
+    deleteCard
 }
 
 export default cardService

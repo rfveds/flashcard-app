@@ -11,29 +11,29 @@ function Dashboard() {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  // const { cards, isLoading, isError, message } = useSelector(
-  //   (state) => state.cards
-  // )
+  const { cards, isLoading, isError, message } = useSelector(
+    (state) => state.cards
+  )
 
-  // useEffect(() => {
-  //   if (isError) {
-  //     console.log(message)
-  //   }
+  useEffect(() => {
+    if (isError) {
+      console.log(message)
+    }
 
-  //   if (!user) {
-  //     navigate('/login')
-  //   }
+    if (!user) {
+      navigate('/login')
+    }
 
-  //   dispatch(getCards())
+    dispatch(getCards())
 
-  //   return () => {
-  //     dispatch(reset())
-  //   }
-  // }, [user, navigate, isError, message, dispatch])
+    return () => {
+      dispatch(reset())
+    }
+  }, [user, navigate, isError, message, dispatch])
 
-  // if (isLoading) {
-  //   return <Spinner />
-  // }
+  if (isLoading) {
+    return <Spinner />
+  }
 
   return (
     <>
@@ -45,7 +45,7 @@ function Dashboard() {
       <CardForm />
 
       <section className='content'>
-        {/* {cards.length > 0 ? (
+        {cards.length > 0 ? (
           <div className='cards'>
             {cards.map((card) => (
               <CardItem key={card._id} card={card} />
@@ -53,7 +53,7 @@ function Dashboard() {
           </div>
         ) : (
           <h3>You have not set any cards</h3>
-        )} */}
+        )}
       </section>
     </>
   )
