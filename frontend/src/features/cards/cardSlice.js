@@ -27,7 +27,7 @@ export const createCard = createAsyncThunk(
         }
     })
 
-// Get user cards
+// Get cards
 export const getCards = createAsyncThunk(
     'cards/getAll',
     async (_, thunkAPI) => {
@@ -46,7 +46,7 @@ export const getCards = createAsyncThunk(
     }
 )
 
-// Delete new card
+// Delete card
 export const deleteCard = createAsyncThunk(
     '/cards/delete',
     async (id, thunkAPI) => {

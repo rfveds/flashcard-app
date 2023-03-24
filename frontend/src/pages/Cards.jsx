@@ -1,18 +1,18 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import DeckForm from '../components/DeckForm'
-import DeckItem from '../components/DeckItem'
+import CardForm from '../components/CardForm'
+import CardItem from '../components/CardItem'
 import Spinner from '../components/Spinner'
-import { getDecks, reset } from '../features/decks/deckSlice'
+import { getCards, reset } from '../features/cards/cardSlice'
 
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { decks, isLoading, isError, message } = useSelector(
-    (state) => state.decks
+  const { cards, isLoading, isError, message } = useSelector(
+    (state) => state.cards
   )
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function Dashboard() {
       navigate('/login')
     }
 
-    dispatch(getDecks())
+    dispatch(getCards())
 
     return () => {
       dispatch(reset())
@@ -39,20 +39,20 @@ function Dashboard() {
     <>
       <section className='heading'>
         <h1>Welcome {user && user.name}</h1>
-        <p>Flashdeck Dashboard</p>
+        <p>Flashcard Dashboard</p>
       </section>
 
-      <DeckForm />
+      <CardForm />
 
       <section className='content'>
-        {decks.length > 0 ? (
-          <div className='decks'>
-            {decks.map((deck) => (
-              <DeckItem key={deck._id} deck={deck} />
+        {cards.length > 0 ? (
+          <div className='cards'>
+            {cards.map((card) => (
+              <CardItem key={card._id} card={card} />
             ))}
           </div>
         ) : (
-          <h3>You have not set any decks</h3>
+          <h3>You have not set any cards</h3>
         )}
       </section>
     </>
