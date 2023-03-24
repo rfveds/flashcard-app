@@ -13,8 +13,8 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/api/card', require('./routes/cardRoutes'))
-app.use('/api/deck', require('./routes/deckRoutes'))
+app.use('/api/cards', require('./routes/cardRoutes'))
+app.use('/api/decks', require('./routes/deckRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
 // Serve frontend

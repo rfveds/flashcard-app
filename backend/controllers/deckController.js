@@ -4,7 +4,7 @@ const User = require('../models/userModel')
 
 /**    
  *  @desc   Get Decks
- *  @route  GET /api/deck
+ *  @route  GET /api/decks
  *  @access Private
 */
 const getDecks = asyncHandler(async (req, res) => {
@@ -16,7 +16,7 @@ const getDecks = asyncHandler(async (req, res) => {
 
 /**    
  *  @desc   Get Deck
- *  @route  GET /api/deck/:id
+ *  @route  GET /api/decks/:id
  *  @access Private
 */
 const getDeck = asyncHandler(async (req, res) => {
@@ -28,7 +28,7 @@ const getDeck = asyncHandler(async (req, res) => {
 
 /**    
  *  @desc   Set Deck
- *  @route  POST /api/deck
+ *  @route  POST /api/decks
  *  @access Private
 */
 const setDeck = asyncHandler(async (req, res) => {
@@ -48,7 +48,7 @@ const setDeck = asyncHandler(async (req, res) => {
 
 /**    
  *  @desc   Update Deck
- *  @route  PUT /api/deck/:id
+ *  @route  PUT /api/decks/:id
  *  @access Private
 */
 const updateDeck = asyncHandler(async (req, res) => {
@@ -86,7 +86,7 @@ const updateDeck = asyncHandler(async (req, res) => {
 
 /**    
  *  @desc   Delete Deck
- *  @route  DELETE /api/deck/:id
+ *  @route  DELETE /api/decks/:id
  *  @access Private
 */
 const deleteDeck = asyncHandler(async (req, res) => {

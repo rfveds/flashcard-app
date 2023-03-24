@@ -5,7 +5,7 @@ const User = require('../models/userModel')
 
 /**    
  *  @desc   Get Cards
- *  @route  GET /api/card
+ *  @route  GET /api/cards
  *  @access Public
 */
 const getCards = asyncHandler(async (req, res) => {
@@ -17,7 +17,7 @@ const getCards = asyncHandler(async (req, res) => {
 
 /**    
  *  @desc   Get Card
- *  @route  GET /api/card/:id
+ *  @route  GET /api/cards/:id
  *  @access Private
 */
 const getCard = asyncHandler(async (req, res) => {
@@ -29,7 +29,7 @@ const getCard = asyncHandler(async (req, res) => {
 
 /**    
  *  @desc   Set Card
- *  @route  POST /api/card
+ *  @route  POST /api/cards
  *  @access Private
 */
 const setCard = asyncHandler(async (req, res) => {
@@ -61,7 +61,7 @@ const setCard = asyncHandler(async (req, res) => {
 
 /**    
  *  @desc   Update Card
- *  @route  PUT /api/card/:id
+ *  @route  PUT /api/cards/:id
  *  @access Private
 */
 const updateCard = asyncHandler(async (req, res) => {
@@ -103,7 +103,7 @@ const updateCard = asyncHandler(async (req, res) => {
 
 /**    
  *  @desc   Delete Card
- *  @route  DELETE /api/card/:id
+ *  @route  DELETE /api/cards/:id
  *  @access Private
 */
 const deleteCard = asyncHandler(async (req, res) => {
