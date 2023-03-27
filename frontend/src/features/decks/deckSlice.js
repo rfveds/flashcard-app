@@ -66,58 +66,58 @@ export const deleteDeck = createAsyncThunk(
     })
 
 
-    export const deckSlice = createSlice({
-        name: 'deck',
-        initialState,
-        reducers: {
-            reset: (state) => initialState
-        },
-        extraReducers: (builder) => {
-            builder
-                .addCase(createDeck.pending, (state) => {
-                    state.isLoading = true
-                })
-                .addCase(createDeck.fulfilled, (state, action) => {
-                    state.isLoading = false
-                    state.isSuccess = true
-                    state.decks.push(action.payload)
-                })
-                .addCase(createDeck.rejected, (state, action) => {
-                    state.isLoading = false
-                    state.isError = true
-                    state.message = action.payload
-                })
-                .addCase(getDecks.pending, (state) => {
-                    state.isLoading = true
-                })
-                .addCase(getDecks.fulfilled, (state, action) => {
-                    state.isLoading = false
-                    state.isSuccess = true
-                    state.decks = action.payload
-                })
-                .addCase(getDecks.rejected, (state, action) => {
-                    state.isLoading = false
-                    state.isError = true
-                    state.message = action.payload
-                })
-                .addCase(deleteDeck.pending, (state) => {
-                    state.isLoading = true
-                })
-                .addCase(deleteDeck.fulfilled, (state, action) => {
-                    state.isLoading = false
-                    state.isSuccess = true
-                    state.decks = state.decks
-                        .filter(
-                            (deck) => deck._id !== action.payload.id
-                        )
-                })
-                .addCase(deleteDeck.rejected, (state, action) => {
-                    state.isLoading = false
-                    state.isError = true
-                    state.message = action.payload
-                })
-        }
-    })
-    
-    export const { reset } = deckSlice.actions
-    export default deckSlice.reducer
+export const deckSlice = createSlice({
+    name: 'deck',
+    initialState,
+    reducers: {
+        reset: (state) => initialState
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(createDeck.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(createDeck.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.decks.push(action.payload)
+            })
+            .addCase(createDeck.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(getDecks.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(getDecks.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.decks = action.payload
+            })
+            .addCase(getDecks.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(deleteDeck.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(deleteDeck.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.decks = state.decks
+                    .filter(
+                        (deck) => deck._id !== action.payload.id
+                    )
+            })
+            .addCase(deleteDeck.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+    }
+})
+
+export const { reset } = deckSlice.actions
+export default deckSlice.reducer

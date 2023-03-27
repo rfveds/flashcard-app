@@ -24,7 +24,9 @@ function Dashboard() {
       navigate('/login')
     }
 
-    dispatch(getDecks())
+    if (user) {
+      dispatch(getDecks())
+    }
 
     return () => {
       dispatch(reset())
