@@ -72,9 +72,9 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <!-- <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
 
@@ -85,11 +85,17 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `rfveds`, `flashcard-app`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `flashcard app`, `project_description`
+This Github project is a Flashcard App that allows users to learn programming concepts and foreign languages using flashcards. The app is built using the MERN stack, which includes MongoDB, Express, React, and Node.js.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+The Flashcard App will consist of two types of flashcards, one for programming and one for languages. The programming flashcards will cover various programming concepts, syntax, and code snippets. 
 
+The language flashcards will cover vocabulary, grammar, pronunciation, and usage. The app will retrieve data for the language flashcards from a Dictionary API, such as Free Dictionary API. This API provides translations, definitions, synonyms, pronunciation, and audio files for the words and phrases used in the flashcards.
 
+Users can create their flashcards, customize them, and categorize them into different decks. I want to implement also reviewing progress, tracking performance, and setting goals to improve learning.
+
+The Flashcard App will be designed to be user-friendly, intuitive, and visually appealing, I am planning to use Material UI.
+
+<p align="right">(<a href="#readme-top">back to main folder runtop</a>)</p>
 
 ### Built With
 
@@ -112,17 +118,15 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/rfveds/flashcard-app.git
    ```
-3. Install backend NPM packages
-  * In main folder run
+2. In main folder to install backend NPM packages run
    ```sh
    npm install
    ```
-4. Install frontend NPM packages
-  * In frontend folder run
+3. In frontend folder to install frontend NPM packages run
   ```
   npm install
   ```
-5. Run both backend and front end server with
+4. Run both backend and front end server with
   ```
   npm run dev
   ```
@@ -151,6 +155,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] Card CRUD
 - [x] User CRUD
     - [x] JWT auth
+- [ ] Tracking performance
+- [ ] Setting goals
+- [ ] Priority Queue-based algorithm for revieing 
+- [ ] Language flascards
+    - [ ] Dictionary API
 ### Frontend
 - [ ] Components
 - [ ] Redux
