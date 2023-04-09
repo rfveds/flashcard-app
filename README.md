@@ -114,21 +114,21 @@ To get a local copy up and running follow these simple steps.
 ### Installation
 
 1. Clone the repo
-   ```sh
-   git clone https://github.com/rfveds/flashcard-app.git
-   ```
+    ```sh
+    git clone https://github.com/rfveds/flashcard-app.git
+    ```
 2. In main folder to install backend NPM packages run
-   ```sh
-   npm install
-   ```
+    ```sh
+    npm install
+    ```
 3. In frontend folder to install frontend NPM packages run
-  ```
-  npm install
-  ```
+    ```
+    npm install
+    ```
 4. Run both backend and front end server with
-  ```
-  npm run dev
-  ```
+    ```
+    npm run dev
+    ```
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
