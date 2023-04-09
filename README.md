@@ -89,7 +89,7 @@ This Github project is a Flashcard App that allows users to learn programming co
 
 The Flashcard App will consist of two types of flashcards, one for programming and one for languages. The programming flashcards will cover various programming concepts, syntax, and code snippets. 
 
-The language flashcards will cover vocabulary, grammar, pronunciation, and usage. The app will retrieve data for the language flashcards from a Dictionary API, such as Free Dictionary API. This API provides translations, definitions, synonyms, pronunciation, and audio files for the words and phrases used in the flashcards.
+The language flashcards will cover vocabulary, grammar, pronunciation, and usage. The app will retrieve data for the language flashcards from a Dictionary API, such as Free Dictionary API. On each card there will be translation, definition, synonyms, pronunciation, and audio files.
 
 Users can create their flashcards, customize them, and categorize them into different decks. I want to implement also reviewing progress, tracking performance, and setting goals to improve learning.
 
