@@ -34,10 +34,9 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-<h3 align="center">flashcard app</h3>
+<h3 align="center">Flashcard App</h3>
 
   <p align="center">
-    project_description
     <!-- <br />
     <a href="https://github.com/rfveds/flashcard-app"><strong>Explore the docs »</strong></a>
     <br />
