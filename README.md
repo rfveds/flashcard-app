@@ -94,7 +94,7 @@ Users can create their flashcards, customize them, and categorize them into diff
 
 The Flashcard App will be designed to be user-friendly, intuitive, and visually appealing, I am planning to use Material UI.
 
-<p align="right">(<a href="#readme-top">back to main folder runtop</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
