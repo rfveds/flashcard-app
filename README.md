@@ -84,7 +84,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-This Github project is a Flashcard App that allows users to learn programming concepts and foreign languages using flashcards. The app is built using the MERN stack, which includes MongoDB, Express, React, and Node.js.
+This project is a Flashcard App that allows users to learn programming concepts and foreign languages using flashcards. The app is built using the MERN stack, which includes MongoDB, Express, React, and Node.js.
 
 The Flashcard App will consist of two types of flashcards, one for programming and one for languages. The programming flashcards will cover various programming concepts, syntax, and code snippets. 
 
